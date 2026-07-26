@@ -22,6 +22,11 @@ jobs:
       - name: Generate timestamp tag
         run: echo "VERSION=$(date +%Y%m%d%H%M%S)" >> "$GITHUB_ENV"
 
+      - name: Debug secret length
+        run: echo "Username length is ${#DOCKER_USERNAME}"
+        env:
+         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
