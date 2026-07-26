@@ -24,8 +24,7 @@ jobs:
               run: echo "TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
             - name: Build and push Docker image
-              env:
-                TAG: ${{ env.TAG }}  # Ensure TAG is available in this step
+       # Ensure TAG is available in this step
               run: |
-                docker build -t ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ env.TAG }} .
-                docker push ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ env.TAG }}
+                docker build -t ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ env.VERSION }} .
+                docker push ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ env.VERSION }}
