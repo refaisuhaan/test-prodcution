@@ -21,9 +21,10 @@ jobs:
                 password: ${{ secrets.DOCKER_PASSWORD }}
 
             - name: Generate timestamp tag
-              run: echo "TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+              run: echo "VERSION=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
             - name: Build and push Docker image
+                
               run: |
-                docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-APP:${{ env.TAG }} .
-                docker push ${{ secrets.DOCKER_USERNAME }}/flask-APP:${{ env.TAG }}
+                docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-APP:${{ env.VERSION }} .
+                docker push ${{ secrets.DOCKER_USERNAME }}/flask-APP:${{ env.VERSION }}
