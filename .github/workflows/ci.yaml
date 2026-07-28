@@ -41,7 +41,7 @@ jobs:
 
       - name: Update deployment.yaml and commit
         run: |
-          sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ steps.tag.outputs.value }}|" deployment.yaml
+          sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/helloworld:${{ steps.tag.outputs.value }}|" deploy.yaml
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add deploy.yaml
