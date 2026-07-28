@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: suhaandocker/helloworld:20260726020412
+        image: suhaandocker/helloworld:2026-07-28-053155
 
         ports:
         - containerPort: 5000
